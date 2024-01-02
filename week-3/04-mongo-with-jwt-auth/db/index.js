@@ -2,9 +2,8 @@ const mongoose = require("mongoose");
 
 // Connect to MongoDB
 mongoose.connect(
-  "mongodb+srv://mongodb:prouddaddy%4008@mango.8uhvicf.mongodb.net/mongo-with-jwt?retryWrites=true&w=majority"
+  process.env.DB_URI
 );
-
 
 // Define schemas
 const AdminSchema = new mongoose.Schema({

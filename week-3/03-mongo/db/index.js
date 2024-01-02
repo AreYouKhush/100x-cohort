@@ -1,9 +1,7 @@
 const mongoose = require("mongoose");
 
 // Connect to MongoDB
-mongoose.connect(
-  "mongodb+srv://mongodb:prouddaddy%4008@mango.8uhvicf.mongodb.net/"
-);
+mongoose.connect(process.env.DB_URI);
 
 // Define schemas
 const AdminSchema = new mongoose.Schema({
@@ -11,7 +9,7 @@ const AdminSchema = new mongoose.Schema({
   username: {
     type: String,
     required: true, // Ensures that the field is not null
-    unique: true,  // Ensures that the field is unique
+    unique: true, // Ensures that the field is unique
   },
   password: String,
 });
@@ -21,10 +19,10 @@ const UserSchema = new mongoose.Schema({
   username: {
     type: String,
     required: true, // Ensures that the field is not null
-    unique: true,  // Ensures that the field is unique
+    unique: true, // Ensures that the field is unique
   },
   password: String,
-  purchasedCourses: Array
+  purchasedCourses: Array,
 });
 
 const CourseSchema = new mongoose.Schema({

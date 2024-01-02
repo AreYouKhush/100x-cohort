@@ -39,7 +39,7 @@ router.post("/signin", async (req, res) => {
     if (!isMatch) {
       res.send({ msg: "incorrect Password" });
     } else {
-      const bearerToken = jwt.sign({username: username}, "secret");
+      const bearerToken = jwt.sign({username: username}, jwtSecret);
       res.send({ token: bearerToken });
     }
   }

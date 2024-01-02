@@ -1,4 +1,5 @@
 const jwt = require("jsonwebtoken");
+const jwtSecret = process.env.JWTKEY
 
 // Middleware for handling auth
 function adminMiddleware(req, res, next) {
@@ -6,7 +7,7 @@ function adminMiddleware(req, res, next) {
     // You need to check the headers and validate the admin from the admin DB. Check readme for the exact headers to be expected
     const token = req.headers.token;
     try{
-        const isVerify = jwt.verify(token, "secret");
+        const isVerify = jwt.verify(token, jwtSecret);
         if(isVerify){
             next();
         }else{

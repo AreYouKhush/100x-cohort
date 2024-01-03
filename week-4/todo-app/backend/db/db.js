@@ -8,6 +8,7 @@ mongoose.connect(
 // Define schemas
 const UserSchema = new mongoose.Schema({
   // Schema definition here
+  name: String,
   username: {
     type: String,
     required: true, // Ensures that the field is not null
